@@ -2,7 +2,7 @@ function App() {
 
   return (
     <>
-      <h1>High H</h1>
+      <h1 className="text-6xl">High H</h1>
     </>
   )
 }
