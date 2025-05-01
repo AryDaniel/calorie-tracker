@@ -7,13 +7,14 @@ type FormProps = {
     dispatch: Dispatch<ActivityActions>
 }
 
-export default function Form({ dispatch }: FormProps) {
-    const [activity, setActivity] = useState<Activity>({
-        category: 1,
-        excercise: '',
-        calories: 0
+const initialState = {
+    category: 1,
+    excercise: '',
+    calories: 0
+}
 
-    })
+export default function Form({ dispatch }: FormProps) {
+    const [activity, setActivity] = useState<Activity>(initialState)
 
     // Handles change events from either an input or a select element
     const handleChange = (e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>) => {
@@ -34,6 +35,8 @@ export default function Form({ dispatch }: FormProps) {
         e.preventDefault()
 
         dispatch({ type: 'save-activity', payload: {newActivity: activity}})
+
+        setActivity(initialState)
     }
 
   return (
@@ -51,7 +54,7 @@ export default function Form({ dispatch }: FormProps) {
                 { categories.map((category) => (
                     <option 
                         key={category.id}
-                        value={category.name}
+                        value={category.id}
                     >
                         {category.name}
                     </option>
