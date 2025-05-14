@@ -48,10 +48,7 @@ function App() {
       </section>
 
       <section className="p-10 mx-auto mx-w-4xl">
-        <ActivityList 
-          activities={state.activities}
-          dispatch={dispatch}
-        />
+        <ActivityList/>
       </section>
     </>
   )
